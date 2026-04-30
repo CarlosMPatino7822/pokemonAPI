@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Adivina el Pokémon</h1>
+  <div id="quiz-container" class="quiz-container">
+    <div id="quiz-image" class="quiz-image"><img id="quiz-pic" src="" alt="pokemon" /></div>
+    <div id="quiz-options" class="quiz-options"></div>
+  </div>
+  <div id="quiz-status" class="quiz-status"></div>
+  <button id="next-btn" class="quiz-next" style="display:none;" onclick="startNewQuestion()">Siguiente</button>
+  <div id="quiz-score" class="quiz-score">Puntos: 0</div>
+  <a href="index.html" class="back-link">Volver a la lista</a>
+  <script src="quiz.js"></script>
+</body>
+</html>
