@@ -38,10 +38,16 @@ function renderPokemonCard(pokemon) {
   const link = document.createElement("a");
   const id = pokemon.id;
   // Determine detail page path robustly depending on server root
-  const currentPath = window.location.pathname;
-  const detailHref = currentPath.includes("/web_api_pokemon")
-    ? `detail.html?id=${id}`
-    : `/web_api_pokemon/detail.html?id=${id}`;
+  const parts = window.location.pathname.split('/').filter(p => p);
+  const idx = parts.indexOf('web_api_pokemon');
+  let detailHref = '';
+  if (idx >= 0) {
+    const base = '/' + parts.slice(0, idx + 1).join('/'); // e.g. /repo/web_api_pokemon
+    detailHref = base + '/detail.html?id=' + id;
+  } else {
+    detailHref = 'detail.html?id=' + id;
+  }
+  console.log('Detail link for', id, ':', detailHref);
   link.href = detailHref;
   link.target = "_blank";
   link.className = "pokemon-card";
