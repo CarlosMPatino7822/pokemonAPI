@@ -1,20 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pokemon Quiz</title>
+  <title>Pokémon Quiz</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <h1>Adivina el Pokémon</h1>
+
+  <section class="score-panel" aria-label="Registro de puntajes">
+    <label for="user-select">Usuario registrado</label>
+    <div class="score-actions">
+      <select id="user-select"></select>
+      <button id="save-score-btn" type="button">Guardar puntaje</button>
+    </div>
+    <p id="save-status" class="save-status" role="status"></p>
+  </section>
+
   <div id="quiz-container" class="quiz-container">
-    <div id="quiz-image" class="quiz-image"><img id="quiz-pic" src="" alt="pokemon" /></div>
+    <div id="quiz-image" class="quiz-image">
+      <img id="quiz-pic" src="" alt="pokemon" />
+    </div>
     <div id="quiz-options" class="quiz-options"></div>
   </div>
+
   <div id="quiz-status" class="quiz-status"></div>
-  <button id="next-btn" class="quiz-next" style="display:none;" onclick="startNewQuestion()">Siguiente</button>
+  <button id="next-btn" class="quiz-next" type="button" style="display:none;" onclick="startNewQuestion()">Siguiente</button>
   <div id="quiz-score" class="quiz-score">Puntos: 0</div>
+
+  <section class="reports-grid" aria-label="Reportes de base de datos">
+    <article class="report-card">
+      <div class="report-card-header">
+        <h2>Historial por usuario</h2>
+        <button id="load-history-btn" type="button">Consultar</button>
+      </div>
+      <div id="history-container" class="table-wrap"></div>
+    </article>
+
+    <article class="report-card">
+      <div class="report-card-header">
+        <h2>Reportes agrupados</h2>
+        <select id="period-select">
+          <option value="week">Semana</option>
+          <option value="month">Mes</option>
+          <option value="all">Todo el tiempo</option>
+        </select>
+      </div>
+      <div id="report-container" class="table-wrap"></div>
+    </article>
+  </section>
+
   <a href="index.html" class="back-link">Volver a la lista</a>
   <script src="quiz.js"></script>
 </body>
